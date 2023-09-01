@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-初始结构搭建</title>
+    <script src="./promise.js"></script>
+  </head>
+
+  <body>
+    <script>
+      // let p = new Promise((resolve, reject) => {
+      //   // resolve('ok');
+      //   setTimeout(() => {
+      //     resolve('ok');
+      //     // reject('error');
+      //     // throw ('error'); // 无法在异步下捕获异常 g原生promise也捕获不到，不是我的问题！
+      //   }, 2000)
+      // });
+
+      // console.log(p)
+
+      // p.then(value => {
+      //   console.log(value);
+      // }, reason => {
+      //   console.warn(reason);
+      // });
+
+      // const res = p.then(value => {
+      //   console.log(value);
+      // }, reason => {
+      //   console.log(reason);
+      // }).catch(error => {
+      //   console.warn(error);
+      // });
+
+      // console.log(res);
+
+      // const pp = new Promise.resolve('ok');
+      // const ppp = new Promise.resolve(new Promise((resolve, reject) => {
+      //   resolve('ok');
+      //   // reject('faild');
+      //   // throw 'error';
+      // }));
+      // console.log(pp);
+      // console.log(ppp);
+
+      /*********************** P36 ***********************/
+      // let p = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve("ERROR");
+      //   }, 1000);
+      // });
+      // p.then((value) => {
+      //   console.log(111);
+      // })
+      //   .then((value) => {
+      //     console.log(222);
+      //   })
+      //   .then((value) => {
+      //     console.log(333);
+      //   })
+      //   .catch((reason) => {
+      //     console.warn(reason);
+      //   });
+      //   console.log(p);
+
+      /*********************** P37 ***********************/
+      // const p = Promise.resolve("OK");
+      // console.log(p);
+      // const pp = Promise.resolve(
+      //   new Promise((resolve, reject) => {
+      //     reject("ERROR");
+      //   })
+      // );
+      // console.log(pp);
+
+      /*********************** P37 ***********************/
+      // const p = Promise.reject("error");
+      // const pp = Promise.reject(
+      //   new Promise((resolve, reject) => {
+      //     resolve("OK");
+      //   })
+      // );
+      // console.log(p);
+      // console.log(pp);
+
+      /*********************** P37 ***********************/
+      // const p = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve("OK");
+      //   }, 3000);
+      // });
+      // const pp = Promise.resolve("OKK");
+      // const ppp = Promise.reject("OKKK");
+      // const a = Promise.all([p, pp, ppp]);
+      // a.then(
+      //   (value) => {
+      //     alert(value);
+      //   },
+      //   (reason) => {
+      //     alert(reason);
+      //   }
+      // );
+      // console.log(a);
+
+      /*********************** P37 ***********************/
+      // const p = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve("OK");
+      //   }, 1000);
+      // });
+      // const pp = Promise.resolve("OKK");
+      // const ppp = Promise.reject("OKKK");
+      // const r = Promise.race([p, pp, ppp]);
+      // console.log(r);
+
+      /*********************** P37 ***********************/
+      // let p = new Promise((resolve, reject) => {
+      //   reject("OK");
+      //   console.log("111");
+      // })
+
+      // p.then(value => {
+      //   console.log(222);
+      // },reason => {
+      //   console.log(444);
+      // })
+
+      // console.log(333);
+    </script>
+  </body>
+</html>

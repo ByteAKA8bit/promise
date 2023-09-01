@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise 封装 AJAX</title>
+</head>
+
+<body>
+  <div>
+    <h2>Promise 封装 AJAX 操作</h2>
+    <button id="btn">点击发送AJAX</button>
+  </div>
+  <script>
+    // 获取元素对象
+    const btn = document.querySelector('#btn');
+
+    btn.addEventListener('click', function () {
+      const p = new Promise((resolve, reject) => {
+        // 1.创建对象
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = 'json';
+        // 2.初始化
+        xhr.open('GET', 'https://api.muxiaoguo.cn/api/xiaohua');
+        // 3.发送请求
+        xhr.send()
+        // 4.处理
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              // 控制台输出响应体
+              resolve(xhr.response)
+            } else {
+              // 控制台输出响应状态码
+              reject(xhr.status)
+            }
+          }
+        }
+      });
+
+      p.then(value => {
+        console.log(value.data.content);
+      }, reason => {
+        console.warn(reason);
+      })
+    });
+  </script>
+</body>
+
+</html>
